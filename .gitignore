@@ -1,0 +1,9 @@
+.DS_Store
+.deps/
+.tools/
+bin/
+obj/
+*.user
+*.suo
+*.rsuser
+*.nupkg
