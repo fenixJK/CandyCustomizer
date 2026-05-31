@@ -42,7 +42,7 @@ namespace CandyCustomizer.Runtime
                     Directory.CreateDirectory(directory);
 
                 if (!File.Exists(path))
-                    File.WriteAllText(path, Serializer.Serialize(OutcomeDefaults.Create()));
+                    File.WriteAllText(path, CreateDefaultYaml());
 
                 string yaml = File.ReadAllText(path);
                 OutcomeConfiguration configuration = Deserializer.Deserialize<OutcomeConfiguration>(yaml) ?? new OutcomeConfiguration();
@@ -75,6 +75,45 @@ namespace CandyCustomizer.Runtime
             }
 
             return false;
+        }
+
+        private static string CreateDefaultYaml()
+        {
+            OutcomeConfiguration defaults = OutcomeDefaults.Create();
+            DefaultOutcomes outcomes = new DefaultOutcomes();
+
+            if (defaults.Outcomes.TryGetValue("complete_example", out CandyOutcomeSettings completeExample))
+                outcomes.CompleteExample = completeExample;
+
+            outcomes.RiskyBite = new CompactOutcome
+            {
+                Health = -20f,
+                KillReason = "An unstable candy",
+                Hint = "Conditional risky outcome example.",
+            };
+
+            return Serializer.Serialize(new DefaultOutcomeDocument { Outcomes = outcomes });
+        }
+
+        private sealed class DefaultOutcomeDocument
+        {
+            public DefaultOutcomes Outcomes { get; set; }
+        }
+
+        private sealed class DefaultOutcomes
+        {
+            public CandyOutcomeSettings CompleteExample { get; set; }
+
+            public CompactOutcome RiskyBite { get; set; }
+        }
+
+        private sealed class CompactOutcome
+        {
+            public float Health { get; set; }
+
+            public string KillReason { get; set; }
+
+            public string Hint { get; set; }
         }
     }
 }

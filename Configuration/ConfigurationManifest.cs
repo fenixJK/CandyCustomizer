@@ -53,7 +53,7 @@ namespace CandyCustomizer.Configuration
             ["kill"] = "Kills after applying fields.",
             ["kill_reason"] = "Death reason for explicit kills, lethal negative health, tracked lethal candy effects, and tracked eater explosions.",
             ["explode"] = "Triggers Player.Explode.",
-            ["hint"] = "Shown when can_eat blocks a custom-mode candy, or after custom behavior is applied.",
+            ["hint"] = "Shown after custom behavior is applied.",
             ["hint_duration"] = "Hint seconds.",
         };
 

@@ -147,7 +147,7 @@ namespace CandyCustomizer.Configuration
                 }
 
                 if (!Enum.TryParse(effect.Name, true, out EffectType _))
-                    result.Warnings.Add($"{path}.name: '{effect.Name}' is not a known EXILED 9.13.3 effect enum value.");
+                    result.Warnings.Add($"{path}.name: '{effect.Name}' is not a known EXILED 9.14.0 effect enum value.");
 
                 if (effect.Duration < 0f)
                     result.Warnings.Add($"{path}.duration: negative durations are invalid. Use 0 for effects that support infinite duration.");
