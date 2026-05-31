@@ -3,6 +3,7 @@
 .tools/
 bin/
 obj/
+dist/
 *.user
 *.suo
 *.rsuser
