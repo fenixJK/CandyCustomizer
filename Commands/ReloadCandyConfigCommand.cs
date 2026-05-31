@@ -44,7 +44,6 @@ namespace CandyCustomizer.Commands
             try
             {
                 plugin.LoadConfig();
-                ManifestFileWriter.Write(Plugin.Instance);
                 OutcomeRepository.LoadOrCreate(Plugin.Instance);
                 ConfigValidationResult validation = ConfigValidator.Validate(Plugin.Instance.Config, OutcomeRepository.Current);
                 Plugin.Instance.LogValidationWarnings(validation);

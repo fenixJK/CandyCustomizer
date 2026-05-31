@@ -12,7 +12,7 @@ namespace CandyCustomizer.Configuration
         [Description("Whether debug messages should be printed to the server console.")]
         public bool Debug { get; set; } = false;
 
-        [Description("Candy behavior by candy name. Valid names: Rainbow, Yellow, Purple, Red, Green, Blue, Pink, Orange, White, Gray, Black, Brown, Evil.")]
+        [Description("Candy behavior by candy name. This file controls modes, eating, spawn weights, and outcome weights. Edit outcomes.yml for the actual effects, health changes, conditions, hints, explosions, and kill settings. Valid names: Rainbow, Yellow, Purple, Red, Green, Blue, Pink, Orange, White, Gray, Black, Brown, Evil.")]
         public Dictionary<string, CandySettings> Candies { get; set; } = CandyDefaults.Create();
 
         public bool TryGetCandy(string candyName, out CandySettings settings)

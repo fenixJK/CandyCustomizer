@@ -32,7 +32,6 @@ namespace CandyCustomizer
         public override void OnEnabled()
         {
             Instance = this;
-            ManifestFileWriter.Write(this);
             OutcomeRepository.LoadOrCreate(this);
             LogValidationWarnings(ConfigValidator.Validate(Config, OutcomeRepository.Current));
             eventHandler = new CandyEventHandler(this);
